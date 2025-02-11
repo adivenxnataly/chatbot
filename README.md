@@ -1,5 +1,5 @@
 ### Chatbot
-![banner](https://github.com/adivenxnataly/chatbot/blob/main/files/cbbanner.png)
+![banner](https://github.com/adivenxnataly/chatbot/blob/main/files/chatbotbanner.png)
 
 for using this chatbot, clone this repository with :
 
