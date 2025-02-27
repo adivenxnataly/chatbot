@@ -36,9 +36,9 @@ io.on('connection', function (socket) {
 });
 ```
 
-**DeepSeek Models:**
-- DeepSeek-V3: `deepseek-chat`
-- DeepSeek-R1: `deepseek-reasoner`
+**Models:**
+- DeepSeek-V3:  `deepseek-chat`
+- DeepSeek-R1:  `deepseek-reasoner`
 
 #### Configuration (without API keys)
 Simple API configuration example :
