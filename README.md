@@ -31,13 +31,6 @@ io.on('connection', function (socket) {
                 message: messages,
                 model: 'deepseek-chat',
             });
-        } catch (err) {
-            console.error('Error:', err);
-            socket.emit('chatbot', {
-                username: 'bot',
-                type: 'error',
-                text: 'An error occurred. Please try again later.',
-            });
         }
     });
 });
