@@ -1,27 +1,50 @@
 ### Chatbot
-![banner](https://github.com/adivenxnataly/chatbot/blob/main/files/chatbotbanner.png)
+Project is closed, because the API has been deleted.
+>however, you can use API keys for alternative
 
-for using this chatbot, clone this repository with :
+- DeepSeek API [Docs.](https://api-docs.deepseek.com/)
+- [API keys](https://platform.deepseek.com/api_keys)
 
-    git clone https://github.com/adivenxnataly/chatbot.git
+#### Configuration with API Keys
+first, install OpenAI module:
 
-if you don't have nodejs package, then install first with :
+    npm install openai
 
-    pkg install nodejs
-    
-enter the clone, with `cd chatbot/deepseek` then :
+configuration server-side with API Keys:
+```javascript
+const { OpenAI } = require('openai');
 
-    npm install axios body-parser cors express socket.io
+const openai = new OpenAI({
+    baseURL: 'https://api.deepseek.com';
+    apiKey: 'your_api_keys';
+});
 
-then, running the server with :
+io.on('connection', function (socket) {
+    socket.on('prompt', async function (data) {
+        console.log('Received Prompt', data);
+        try {
+            let message = data.text;
+            let image = null;
+            let history;
 
-    node .
-
-you will get output `localhost:3000`, open a browser then go to `localhost:3000`
-done.
+            const completion = await openai.chat.completions.create({
+                message: messages,
+                model: 'deepseek-chat',
+            });
+        } catch (err) {
+            console.error('Error:', err);
+            socket.emit('chatbot', {
+                username: 'bot',
+                type: 'error',
+                text: 'An error occurred. Please try again later.',
+            });
+        }
+    });
+});
+```
  
-#### Configuration
-Simple API configuration example (without API keys) :
+#### Configuration (without API keys)
+Simple API configuration example :
 ```javascript
 const axios = require('axios');
 
@@ -48,5 +71,21 @@ axios.post(url, data, config)
   .catch(error => console.error(error));
 ```
 
-#### Source
-Blackbox.AI: [API](blackbox.ai)
+#### Using this Chatbot
+for using this chatbot, clone this repository with :
+
+    git clone https://github.com/adivenxnataly/chatbot.git
+
+if you don't have nodejs package, then install first with :
+
+    pkg install nodejs
+    
+enter the clone, with `cd chatbot/deepseek` then :
+
+    npm install axios body-parser cors express socket.io
+
+then, running the server with :
+
+    node .
+
+and server running in `localhost:3000`, open a browser then go to `localhost:3000`
