@@ -40,7 +40,7 @@ io.on('connection', function (socket) {
 - DeepSeek-V3:  `deepseek-chat`
 - DeepSeek-R1:  `deepseek-reasoner`
 
-#### Configuration (without API keys)
+#### Configuration without API keys (API has been deleted)
 Simple API configuration example :
 ```javascript
 const axios = require('axios');
