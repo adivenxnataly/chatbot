@@ -40,13 +40,14 @@ io.on('connection', function (socket) {
 - DeepSeek-V3:  `deepseek-chat`
 - DeepSeek-R1:  `deepseek-reasoner`
 
->[!NOTE] Token
-recommend to using `dotenv` for token, with:
+>[!NOTE]
+> Recommend to using `dotenv` for API key, with:
 
     npm install dotenv
 
-then, create new file ".env" and place your API  keys here:
-```API_KEYS="your_api_keys"
+then, create new file ".env" and place your API key here:
+```
+API_KEYS="your_api_keys"
 ```
 
 change fetch token method in server :
