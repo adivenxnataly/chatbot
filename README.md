@@ -1,5 +1,6 @@
 ### Chatbot
-Project is closed, because the API has been deleted.
+**Project is closed**, because the API has been deleted.
+>[!NOTE]
 >however, you can use API keys for alternative
 
 - DeepSeek API [Docs.](https://api-docs.deepseek.com/)
