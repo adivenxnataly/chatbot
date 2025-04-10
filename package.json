@@ -1,0 +1,31 @@
+{
+  "name": "chatbot-ai",
+  "version": "1.0.0-alpha",
+  "description": "Chatbot AI with DeepSeek API models.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adivenxnataly/chatbot.git"
+  },
+  "keywords": [
+    "chatbot-ai",
+    "deepseek-api"
+  ],
+  "author": "Adinata",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adivenxnataly/chatbot/issues"
+  },
+  "homepage": "https://github.com/adivenxnataly/chatbot#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "openai": "^4.93.0",
+    "socket.io": "^4.8.1"
+  }
+}
