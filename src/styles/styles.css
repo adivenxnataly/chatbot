@@ -1,0 +1,666 @@
+:root {
+    --primary-color: #111111;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #111111;
+    overflow: hidden;
+    background-color: var(--primary-color);
+}
+
+body.dark-theme {
+    --primary-color: #111111;
+}
+
+/* Animasi untuk transisi layar */
+.app > .screen {
+    position: absolute;
+    /* Gunakan absolute untuk overlay layar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    background: #111111;
+    /* Warna latar belakang yang sama */
+}
+
+.app > .screen.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Animasi untuk overlay transisi */
+.transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #111111;
+    background: #111111;
+    /* Warna latar belakang yang sama (#111111) */
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.transition-overlay.active {
+    color: #111111;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Animasi Loading */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(17, 17, 17, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loading-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.loading-spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #00124a;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.join-screen {
+    color: white;
+}
+
+.join-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.join-text {
+    text-align: left;
+}
+
+.join-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.join-title.animate-left {
+    animation: slideInFromLeft 1s ease forwards;
+}
+
+.chatbot-title.animate-top {
+    animation: slideInFromTop 1s ease forwards;
+}
+
+.join-title {
+    opacity: 0;
+    display: inline-block;
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.chatbot-title {
+    opacity: 0;
+    margin-bottom: 10px;
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.innerchatbot-title {
+    font-size: 18px;
+    color: white;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    transform: translateX(0px);
+}
+
+/* Animasi untuk turun dan muncul (opasitas 0% ke 100%) */
+@keyframes slideDownAndFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px); /* Posisi awal: di atas dan tidak terlihat */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* Posisi akhir: di tempat default dan terlihat */
+    }
+}
+
+/* Class untuk animasi turun dan muncul */
+.innerchatbot-title.animate-down-in {
+    animation: slideDownAndFadeIn 1s ease forwards;
+}
+
+.status-logo {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #00254a; /* Warna default biru */
+    margin-left: 10px;
+    opacity: 0; /* Opasitas awal 0 */
+    transition: background-color 0.3s ease;
+    transform: translateX(-140px); /* Posisi awal */
+}
+
+.status-logo.active {
+    background-color: #00ff00; /* Hijau saat aktif */
+}
+
+.status-logo.error {
+    background-color: #ff0000; /* Merah saat error */
+}
+
+@keyframes hide {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Class untuk animasi muncul */
+.status-logo.show {
+    animation: hide 1s ease forwards; /* Animasi muncul selama 1 detik */
+}
+
+.form-input {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.form-label {
+    color: white;
+}
+
+.join-container .created-by {
+    font-size: 10px !important;
+    color: #666666 !important;
+    margin-top: 20px !important;
+}
+
+.btn-primary {
+    background-color: #00254a;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.form-control {
+    background-color: #222222;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.form-control::placeholder {
+    color: #555555;
+}
+
+.custom-navbar {
+    background-color: #222222;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+
+.navbar-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.navbar-text {
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.api {
+    font-size: 10px;
+    color: grey;
+    padding: 0;
+    margin: 0;
+}
+
+/* Animasi untuk turun dan muncul (opasitas 0% ke 100%) */
+@keyframes slideDownAndFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-10px); /* Posisi awal: di atas dan tidak terlihat */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-2px); /* Posisi akhir: di tempat default dan terlihat */
+    }
+}
+
+/* Animasi untuk naik dan menghilang (opasitas 100% ke 0%) */
+@keyframes slideUpAndFadeOut {
+    0% {
+        opacity: 1;
+        transform: translateX(-2px); /* Posisi awal: di tempat default dan terlihat */
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-10px); /* Posisi akhir: di atas dan tidak terlihat */
+    }
+}
+
+/* Class untuk animasi turun dan muncul */
+.api.animate-down-in {
+    animation: slideDownAndFadeIn 1s ease forwards;
+}
+
+/* Class untuk animasi naik dan menghilang */
+.api.animate-up-out {
+    animation: slideUpAndFadeOut 0.5s ease forwards;
+}
+
+/* Gaya awal untuk api */
+.hidden {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.btn-exit {
+    margin-left: auto;
+    background-color: #111111;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    color: white;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+.btn-exit:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.btn-exit:active:after {
+    width: 200px;
+    height: 200px;
+}
+
+.messages {
+    width: 100%;
+    height: calc(93vh - 130px);
+    background: #111111;
+    overflow-y: auto;
+    padding: 10px;
+    position: fixed;
+    -webkit-overflow-scrolling: touch;
+}
+
+.message {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+
+.message .text {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: inherit;
+}
+
+.message .text strong {
+    font-weight: bold;
+    /* Menerapkan gaya bold */
+}
+
+.message .text p {
+    margin: 0;
+    /* Memberikan jarak antar paragraf */
+}
+
+.message .text h3 {
+    font-size: 1.2em;
+    /* Ukuran font yang lebih besar */
+    font-weight: bold;
+    /* Teks tebal */
+    margin: 15px 0 10px 0;
+    /* Jarak atas dan bawah */
+}
+
+.message .text hr {
+    border: 0;
+    /* Menghapus border default */
+    height: 1px;
+    /* Ketebalan garis */
+    background-color: #444;
+    /* Warna garis */
+    margin: 15px 0;
+    /* Jarak atas dan bawah */
+}
+
+.message .text span {
+    margin-left: 20px;
+}
+
+/* Gaya untuk blok kode */
+pre[class*="language-"] {
+    white-space: pre-wrap !important;
+    padding: 16px !important;
+    margin: 16px 0 !important;
+    background-color: #000000 !important;
+    font-family: "Consolas", monospace !important;
+    font-size: 10px !important;
+    line-height: 1.5 !important;
+}
+
+/* Gaya untuk inline code */
+code.inline-code {
+    font-family: "Consolas", monospace;
+    font-size: 10px;
+    background-color: #333333;
+    color: #bbbbbb;
+    padding: 1px 3px;
+    border-radius: 2px;
+    margin: 1px 2px;
+    display: inline-block;
+    line-height: 1.2;
+}
+
+/* Gaya untuk inline code */
+.math-border {
+    display: inline;
+    font-family: "";
+    font-size: 10px;
+    margin: 0;
+}
+
+.message .text .math-box, .math-result {
+    display: absolute;
+    font-size: 12px;
+    color: #cccccc;
+    font-family: "Lora";
+    padding: 0;
+    margin: 0;
+}
+
+
+.math-result {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.math-frac {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: middle;
+    margin: 0 2px;
+}
+
+.math-frac .numerator,
+.math-frac .denominator {
+    padding: 0 5px;
+}
+
+.math-frac .numerator {
+    border-bottom: 1px solid #fff;
+    /* Garis pemisah pecahan */
+}
+
+/* Gaya untuk math-text (\text{}) */
+.math-text {
+    font-size: 9px;
+    font-family: "Lora";
+    font-style: italic;
+    color: #bbbbbb;
+}
+
+/* Gaya untuk math-align (align*) */
+.math-align {
+    font-family: "Lora";
+    font-size: 10px;
+    color: #ffffff;
+    background-color: #222222;
+    border-radius: 6px;
+    padding: 16px;
+    overflow-x: auto;
+    margin: 16px 0;
+    line-height: 1.5;
+}
+
+/* Gaya untuk math-line (setiap baris dalam align*) */
+.math-line {
+    margin: 5px 0;
+}
+
+.message .text em {
+    font-style: italic;
+    color: #cccccc;
+    font-family: "Lora";
+}
+
+.message.my-message {
+    justify-content: flex-end;
+}
+
+.message.my-message .text {
+    background: #00254a;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    max-width: 80%;
+    font-size: 12px;
+}
+
+.message.other-message {
+    justify-content: flex-start;
+}
+
+.message.other-message .text {
+    color: white;
+    max-width: 80%;
+    font-size: 12px;
+    align-items: center;
+}
+
+.message-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.loading-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: white;
+    margin: 0 3px;
+    animation: bounce 1.4s infinite ease-in-out;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+    0%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+}
+
+
+.input-container {
+    background: #111111;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    padding: 10px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    box-shadow: 0 -10px 30px rgba(17, 17, 17, 1);
+}
+
+.input-message {
+    flex-grow: 1;
+    border-radius: 20px;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: none;
+    background-color: #222222;
+    color: white;
+    outline: none;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+
+.input-message::placeholder {
+    color: #666666;
+    opacity: 1;
+    font-size: 12px;
+}
+
+.input-message:focus {
+    background-color: #222222;
+    color: white;
+    outline: none;
+}
+
+.btn-send {
+    background-color: #00254a;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-bottom: 12px;
+}
+
+.btn-send.active {
+    background-color: #00254a;
+    color: white;
+}
+
+.btn-send.inactive {
+    background-color: transparent; /* Warna saat tidak aktif */
+}
+
+.input-message:not(:focus) + .btn-send {
+    transform: rotate(90deg);
+}
+
+.input-container .created-by-chat {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    color: #666666;
+    text-align: center;
+    white-space: nowrap;
+}

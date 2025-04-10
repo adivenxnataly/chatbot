@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Chatbot AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inconsolata:wght@200..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <div class="app container bg-light h-100 p-0">
+        <div class="screen join-screen active">
+            <div class="join-container position-absolute top-50 start-50 translate-middle text-center">
+                <div class="d-flex align-items-center justify-content-center mb-4">
+                    <img src="chatbot.jpg" alt="Chatbot Avatar" class="join-avatar">
+                    <div class="join-text">
+                        <div class="join-title">
+                            Join
+                        </div>
+                        <div class="chatbot-title">
+                            Chatbot
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-input">
+                    <label class="form-label text-white">Username</label>
+                    <input class="form-control mb-3" type="search" name="username" id="username">
+                    <button class="btn btn-primary" id="join-user">Join</button>
+                </div>
+
+                <div class="created-by text-muted mt-3">
+                    created by Adinata
+                </div>
+            </div>
+        </div>
+
+        <div class="screen chat-screen">
+            <div class="loading-overlay">
+                <div class="loading-spinner"></div>
+            </div>
+
+            <div class="navbar custom-navbar">
+                <img src="chatbot.jpg" alt="Chatbot Avatar" class="navbar-avatar">
+                <div class="navbar-text">
+                    <h1 class="innerchatbot-title">Chatbot</h1>
+                    <span class="api hidden">powered by DeepSeek-V3</span>
+                    <div class="status-logo"></div>
+                </div>
+                <button class="btn btn-exit" id="exit-chat">Close</button>
+            </div>
+
+            <div class="messages">
+                <div class="message my-message">
+                </div>
+                <div class="message other-message">
+                </div>
+            </div>
+
+            <div class="input-container">
+                <input type="search" class="form-control input-message" placeholder="Tulis pesan ke Chatbot" aria-label="question" aria-describedby="send-message" id="message-input" inputmode="text">
+                <button class="btn btn-send" type="button" id="send-message">&#9650;</button>
+                <div class="created-by-chat">
+                    created by Adinata
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-asm.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>
