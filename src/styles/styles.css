@@ -22,10 +22,8 @@ body.dark-theme {
     --primary-color: #111111;
 }
 
-/* Animasi untuk transisi layar */
 .app > .screen {
     position: absolute;
-    /* Gunakan absolute untuk overlay layar */
     top: 0;
     left: 0;
     width: 100%;
@@ -34,7 +32,6 @@ body.dark-theme {
     visibility: hidden;
     transition: opacity 0.5s ease, visibility 0.5s ease;
     background: #111111;
-    /* Warna latar belakang yang sama */
 }
 
 .app > .screen.active {
@@ -42,7 +39,6 @@ body.dark-theme {
     visibility: visible;
 }
 
-/* Animasi untuk overlay transisi */
 .transition-overlay {
     position: fixed;
     top: 0;
@@ -51,7 +47,6 @@ body.dark-theme {
     height: 100%;
     color: #111111;
     background: #111111;
-    /* Warna latar belakang yang sama (#111111) */
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
@@ -64,7 +59,6 @@ body.dark-theme {
     visibility: visible;
 }
 
-/* Animasi Loading */
 .loading-overlay {
     position: absolute;
     top: 0;
@@ -176,19 +170,17 @@ body.dark-theme {
     transform: translateX(0px);
 }
 
-/* Animasi untuk turun dan muncul (opasitas 0% ke 100%) */
 @keyframes slideDownAndFadeIn {
     0% {
         opacity: 0;
-        transform: translateX(-50px); /* Posisi awal: di atas dan tidak terlihat */
+        transform: translateX(-50px);
     }
     100% {
         opacity: 1;
-        transform: translateX(0); /* Posisi akhir: di tempat default dan terlihat */
+        transform: translateX(0);
     }
 }
 
-/* Class untuk animasi turun dan muncul */
 .innerchatbot-title.animate-down-in {
     animation: slideDownAndFadeIn 1s ease forwards;
 }
@@ -197,19 +189,19 @@ body.dark-theme {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: #00254a; /* Warna default biru */
+    background-color: #00254a;
     margin-left: 10px;
-    opacity: 0; /* Opasitas awal 0 */
+    opacity: 0;
     transition: background-color 0.3s ease;
-    transform: translateX(-140px); /* Posisi awal */
+    transform: translateX(-140px);
 }
 
 .status-logo.active {
-    background-color: #00ff00; /* Hijau saat aktif */
+    background-color: #00ff00;
 }
 
 .status-logo.error {
-    background-color: #ff0000; /* Merah saat error */
+    background-color: #ff0000;
 }
 
 @keyframes hide {
@@ -221,9 +213,8 @@ body.dark-theme {
     }
 }
 
-/* Class untuk animasi muncul */
 .status-logo.show {
-    animation: hide 1s ease forwards; /* Animasi muncul selama 1 detik */
+    animation: hide 1s ease forwards;
 }
 
 .form-input {
@@ -296,41 +287,36 @@ body.dark-theme {
     margin: 0;
 }
 
-/* Animasi untuk turun dan muncul (opasitas 0% ke 100%) */
 @keyframes slideDownAndFadeIn {
     0% {
         opacity: 0;
-        transform: translateX(-10px); /* Posisi awal: di atas dan tidak terlihat */
+        transform: translateX(-10px);
     }
     100% {
         opacity: 1;
-        transform: translateX(-2px); /* Posisi akhir: di tempat default dan terlihat */
+        transform: translateX(-2px);
     }
 }
 
-/* Animasi untuk naik dan menghilang (opasitas 100% ke 0%) */
 @keyframes slideUpAndFadeOut {
     0% {
         opacity: 1;
-        transform: translateX(-2px); /* Posisi awal: di tempat default dan terlihat */
+        transform: translateX(-2px)
     }
     100% {
         opacity: 0;
-        transform: translateX(-10px); /* Posisi akhir: di atas dan tidak terlihat */
+        transform: translateX(-10px);
     }
 }
 
-/* Class untuk animasi turun dan muncul */
 .api.animate-down-in {
     animation: slideDownAndFadeIn 1s ease forwards;
 }
 
-/* Class untuk animasi naik dan menghilang */
 .api.animate-up-out {
     animation: slideUpAndFadeOut 0.5s ease forwards;
 }
 
-/* Gaya awal untuk api */
 .hidden {
     opacity: 0;
     transform: translateY(-20px);
@@ -389,39 +375,29 @@ body.dark-theme {
 
 .message .text strong {
     font-weight: bold;
-    /* Menerapkan gaya bold */
 }
 
 .message .text p {
     margin: 0;
-    /* Memberikan jarak antar paragraf */
 }
 
 .message .text h3 {
     font-size: 1.2em;
-    /* Ukuran font yang lebih besar */
     font-weight: bold;
-    /* Teks tebal */
     margin: 15px 0 10px 0;
-    /* Jarak atas dan bawah */
 }
 
 .message .text hr {
     border: 0;
-    /* Menghapus border default */
     height: 1px;
-    /* Ketebalan garis */
     background-color: #444;
-    /* Warna garis */
     margin: 15px 0;
-    /* Jarak atas dan bawah */
 }
 
 .message .text span {
     margin-left: 20px;
 }
 
-/* Gaya untuk blok kode */
 pre[class*="language-"] {
     white-space: pre-wrap !important;
     padding: 16px !important;
@@ -432,7 +408,6 @@ pre[class*="language-"] {
     line-height: 1.5 !important;
 }
 
-/* Gaya untuk inline code */
 code.inline-code {
     font-family: "Consolas", monospace;
     font-size: 10px;
@@ -445,7 +420,6 @@ code.inline-code {
     line-height: 1.2;
 }
 
-/* Gaya untuk inline code */
 .math-border {
     display: inline;
     font-family: "";
@@ -483,10 +457,8 @@ code.inline-code {
 
 .math-frac .numerator {
     border-bottom: 1px solid #fff;
-    /* Garis pemisah pecahan */
 }
 
-/* Gaya untuk math-text (\text{}) */
 .math-text {
     font-size: 9px;
     font-family: "Lora";
@@ -494,7 +466,6 @@ code.inline-code {
     color: #bbbbbb;
 }
 
-/* Gaya untuk math-align (align*) */
 .math-align {
     font-family: "Lora";
     font-size: 10px;
@@ -507,7 +478,6 @@ code.inline-code {
     line-height: 1.5;
 }
 
-/* Gaya untuk math-line (setiap baris dalam align*) */
 .math-line {
     margin: 5px 0;
 }
@@ -647,7 +617,7 @@ code.inline-code {
 }
 
 .btn-send.inactive {
-    background-color: transparent; /* Warna saat tidak aktif */
+    background-color: transparent;
 }
 
 .input-message:not(:focus) + .btn-send {
