@@ -48,7 +48,7 @@ io.on('connection', function (socket) {
 
 then, create new file ".env" and place your API key here:
 ```
-API_KEYS="your_api_keys"
+API_KEY="your_api_keys"
 ```
 
 change fetch token method in server :
